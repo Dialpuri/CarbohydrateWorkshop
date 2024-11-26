@@ -36,3 +36,13 @@ summary::marker {
 .reference-link {
     text-decoration: none;
 }
+
+.indent {
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.inline-code {
+    display: inline-block;
+}
