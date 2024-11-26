@@ -200,7 +200,7 @@ h6 {
 }
 
 h1{
-    border-bottom: 2px solid #fafafa;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.41);
     margin-bottom: 1.15rem;
     padding-bottom: .5rem;
     text-align: center;

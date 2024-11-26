@@ -25,6 +25,7 @@
         <ol>
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#gettingstarted">Getting Started</a></li>
+            <li><a href="#modelbuilding">Model Building</a></li>
         </ol>
     </details>
 
@@ -36,7 +37,8 @@
         This structure was solved up to 1.52 &angst; resolution with approximately 700 residues.
     </p>
     <p>This page outlines what you should do to generate a glycan with some assumed knowledge. If you aren't sure how
-        to proceed for any given step, you can take a look at a hint or the extra instructions in the 'How do I do that?' sections.
+        to proceed for any given step, you can take a look at a hint or the extra instructions in the 'How do I do
+        that?' sections.
     </p>
 
     <h3 id="gettingstarted">2. Getting Started</h3>
@@ -85,24 +87,153 @@
         <p class="indent">
             To import an MTZ file into CCP4i2, :
         <p class="indent"><code>Task menu > Import merged data, AU contents, alignments or coordinates</code></p>
-        <p class="indent"><img src="images/import-merged-reflection-data-selection.png"
+        <p class="indent"><img src="images/import/import-merged-reflection-data-selection.png"
                                alt="An image of the CCP4i2 dialogue box for importing merged reflection data"></p>
         <p class="indent">Clicking on the Import merged reflection data task should bring up the task options</p>
-        <p class="indent"><img src="images/import-merged-reflection-data-task.png"
+        <p class="indent"><img src="images/import/import-merged-reflection-data-task.png"
                                alt="An image of the CCP4i2 dialogue box for importing merged reflection data"></p>
-        <p class="indent">Now the folder icon in the red highlighted area can be selected to bring up a file browser where
-        you can select the <code class="inline-code">carbohydrate-workshop-data.mtz</code> file. You may be prompted
-        to select columns from the MTZ file, you can click <code class="inline-code">Apply</code>. This pop up is asking
+        <p class="indent">Now the folder icon in the red highlighted area can be selected to bring up a file browser
+            where
+            you can select the <code class="inline-code">carbohydrate-workshop-data.mtz</code> file. You may be prompted
+            to select columns from the MTZ file, you can click <code class="inline-code">Apply</code>. This pop up is
+            asking
             what each column that is found in the MTZ file means, in this case, we know that the F
             (Structure Factor Amplitudes) and associated error SIGF are from observed data.
         </p>
-        <p class="indent"><img src="images/import-merged-reflection-data-popup.png"
+        <p class="indent"><img src="images/import/import-merged-reflection-data-popup.png"
                                alt="An image of the CCP4i2 popup box for importing merged reflection data"></p>
-        <p class="indent">You can now press the <code class="inline-code">Run</code> button to begin importing the data</p>
+        <p class="indent">You can now press the <code class="inline-code">Run</code> button to begin importing the data
+        </p>
         </p>
     </details>
 
     </p>
+
+    <p>We need to generate a best map and difference map for this supplied model to the observed reflections. To do this
+        we can run the refinement program <i>REFMAC5</i><sup>4</sup>. In the task labelled 'Refinement
+        Refmacat/Refmac5',
+        select the reflections and FreeR set that were just imported and import the atomic model downloaded earlier
+        (<code class="inline-code">carbohydrate-workshop-data.pdb</code>). Run<i>REFMAC</i>with default settings to generate
+        a refined model and recalculated maps.
+    <details>
+        <summary class="indent">How do I do that?</summary>
+        <p class="indent">
+            To run<i>REFMAC</i>with our imported reflectiosn and the downloaded atomic model, we can navigate to the REFMAC
+            task :
+        <p class="indent"><code>Task menu > Refinement Refmacat/Refmac5</code></p>
+        <p class="indent"><img src="images/refmac/refmac-task.png"
+                               alt="An image of the CCP4i2 dialogue box for REFMAC5"></p>
+        <p class="indent">The two red areas tell us we need to select reflections as well as an atomic model, clicking
+            on
+            dropdown for reflections we can select our imported reflections, which will leave just the atomic model to
+            import.</p>
+        <p class="indent"><img src="images/refmac/refmac-task-reflection-selection.png"
+                               alt="An image of the CCP4i2 dialogue box for REFMAC5 which is partially filled"></p>
+        <p class="indent">Now the folder icon in the red highlighted area can be selected to bring up a file browser
+            where
+            you can select the <code class="inline-code">carbohydrate-workshop-data.pdb</code> file.
+        </p>
+        <p class="indent"><img src="images/refmac/refmac-task-finished.png"
+                               alt="An image of the CCP4i2 popup box for importing merged reflection data"></p>
+        <p class="indent">If it is not already selected, you may need to select the imported FreeR set which is below
+            the
+            reflection drop down box. After you have an atomic model, reflection set, and FreeR set, you can now press
+            the
+            <code class="inline-code">Run</code> button to begin running the refinement. Once it is finished, you should
+            see a refinement report.
+        </p>
+        <p class="indent"><img src="images/refmac/refmac-task-report.png"
+                               alt="An image of the CCP4i2 REFMAC5 report"></p>
+    </details>
+    </p>
+    <h3 id="modelbuilding">3. Model Building</h3>
+    <p>
+        Now that we have imported our data and generated some maps, we can start to manually build the model of a glycan.
+        To do this we need to launch <i>Coot</i> from within CCP4i2.
+    </p>
+    <details>
+        <summary class="indent">Hint</summary>
+        <p class="indent">Is there something from the<i>REFMAC</i>report that can help us do this? </p>
+    </details>
+
+    <p>Once Coot opens, it should look similar to this with an atomic model, best map and difference map loaded.</p>
+    <img src="images/coot/coot-initial-look.png" alt="An image of the initial Coot screen"/>
+    <p>Look around the model, is there anything that stands out as odd?</p>
+    <details>
+        <summary class="indent">What's odd?</summary>
+        <p class="indent">There is quite a lot of positive difference density for this model, which indicates we may be
+        missing part of the model. We're going to try and fix that.
+        </p>
+    </details>
+
+    <p>This model contains a missing carbohydrate chain, can you spot where it is?</p>
+    <details>
+        <summary class="indent">How do I find where it is?</summary>
+        <p class="indent">
+            You can find out where the missing glycan is by looking around the model for an area for a large positive
+            difference density, but this may be time-consuming for a big model!
+        </p>
+        <p class="indent">
+            We can ask <i>Coot</i> to look for us using by navigating to
+        </p>
+        <p class="indent"><code>Validate > Unmodelled blobs...</code></p>
+        <p class="indent"><img src="images/coot/coot-validate-blobs.png"
+                               alt="An image of Coot highlighting Unmodelled blobs..."></p>
+        <p class="indent">Once we click Unmodelled blobs..., a popup will appear asking us to pick a map and model to with.
+            In this case, we want to search for blobs in the difference map which show when we contour that map to 4 r.m.s.d.
+            Changing from the default of 1.4 r.m.s.d helps us find stronger blobs. You see what this will look for if you
+            contour the difference map to 4 sigma. Now click the <code class="inline-code">Find Blobs</code> button to search.
+        </p>
+        <p class="indent"><img src="images/coot/coot-validate-blobs-popup.png"
+                               alt="An image of Coot highlighting Unmodelled blobs..."></p>
+        <p class="indent">
+            <i>Coot</i> will then return a list of found blobs, and in our case, there is only one large blob it has found, so we can click on that
+            to take us to the area where we have an unmodelled glycan. In a real case, you may not know what should go into a
+            big blob of difference density, it could be missing protein, a missing ligand or a missing glycan!
+        </p>
+        <p class="indent"><img src="images/coot/coot-found-blobs.png"
+                               alt="An image of Coot highlighting Unmodelled blobs..."></p>
+    </details>
+    <p>If we center our view on the blob of green density closest to the protein chain, as shown, we are ready to start
+    building a model of the missing carbohydrate chain!</p>
+    <img src="images/coot/coot-missing-glycan-density.png" alt="An image of the missing glycan density"/>
+
+    <p><i>Coot</i> has a carbohydrate module we will need to load to be able to do this, navigate to and select
+        <code class="inline-code">Calculate > Modules > Carbohydrate</code>, which will add the
+        <code class="inline-code">Glyco</code> button in the top bar.
+    </p>
+    <img src="images/coot/coot-carbohydrate-module.png" alt="An image of Coot's carbohydrate module"/>
+
+    <p>Now we can let the semi-automatic glycan builder in Coot handle the heavy lifting. Navigate to and select
+        <code class="inline-code">Glyco > N-link add NAG, NAG, BMA </code>. <i>Coot</i> will then attempt to add the
+        first three sugars in an N-glycan chain which are NAG followed with another NAG via a 1,4 linkage, followed by a
+        BMA sugar via another 1,4 linkage. It is important that the center of your view is near to the ASN/476 residue
+        of chain A.
+    </p>
+
+    <p><i>Coot</i> should have built three sugars nicely into the best (2mFo-DFc) density map as shown. The terminal
+    BMA residue looks to have little density to support it at the moment, however, we must remember that the map was
+        calculated in the absence of this carbohydrate chain, so before we make judgements on whether <i>Coot</i> has
+    added the carbohydrates correctly, we must re-refine the structure using <i>REFMAC</i>. </p>
+    <img src="images/coot/coot-nag-nag-bma-built-norefine.png" alt="An image of Coot's built carbohydrate"/>
+
+    <p>Save the mol back to CCP4i2 and exit Coot, now rerun <i>REFMAC</i> with the new model to calculate a new map</p>
+    <details>
+        <summary class="indent">How do I do that?</summary>
+        <p class="indent">Navigate to the save button,
+            <code class="inline-code">File > Save mol to CCP4i2</code>
+        </p>
+        <p class="indent"><img src="images/coot/coot-save-mol.png"
+                               alt="An image of the CCP4i2 popup box for importing merged reflection data"></p>
+        <p class="indent">Then navigate to the exit button,
+            <code class="inline-code">File > Exit</code>.
+        </p>
+        <p class="indent"><img src="images/coot/coot-exit.png"
+                               alt="An image of the CCP4i2 popup box for importing merged reflection data"></p>
+
+
+
+    </details>
 
     <!--    <h6><a href="part2.html">Part 2 - Validating Carbohydrates</a></h6>-->
     <hr>
@@ -115,6 +246,8 @@
         <li><a class="reference-link" href="https://doi.org/10.1016/j.bmc.2018.11.022.">Barinka C, Novakova Z, Hin N, et
             al. Structural and computational basis for potent inhibition of glutamate carboxypeptidase II by
             carbamate-based inhibitors. Bioorg. Med. Chem, Volume 27, Issue 2, 255-264 </a></li>
+        <li><a class="reference-link">Murshudov, G. N., Skubak, P., et al. REFMAC5 for the refinement of macromolecular
+            crystal structures. Acta Cryst. D67, 355-367.</a></li>
 
     </ol>
     <hr>
