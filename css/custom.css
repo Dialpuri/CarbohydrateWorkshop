@@ -24,3 +24,15 @@
 .title {
     font-size: 1.5rem;
 }
+
+summary::marker {
+    font-size: 1.2em;
+}
+
+.references {
+    font-size: 0.8rem;
+}
+
+.reference-link {
+    text-decoration: none;
+}
