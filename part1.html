@@ -230,12 +230,25 @@
         </p>
         <p class="indent"><img src="images/coot/coot-exit.png"
                                alt="An image of the CCP4i2 popup box for importing merged reflection data"></p>
-
-
-
     </details>
 
-    <!--    <h6><a href="part2.html">Part 2 - Validating Carbohydrates</a></h6>-->
+    <p>
+        After 10 cycles of <i>REFMAC</i> we can reopen our model and map in <i>Coot</i> to see that the semi-automatic
+        glycan builder has done a good job, but at this point are we finished?
+    </p>
+
+    <p><img src="images/coot/coot-nag-nag-bma-refined.png"></p>
+
+    <details open>
+        <summary class="indent">Are we finished?</summary>
+        Near to the terminal BMA sugar, we see some suspicously ring shaped positive difference density. Using the
+        <code class="inline-code">Glyco</code> module, see if you can come up with what should go there. Remember that
+        <i>Coot</i> looks at the center of the view to know where to put new residues, and once they are positioned, we
+        should refine using <i>REFMAC</i>. Try your best at modelling more sugars on this carbohydrate chain, we can check
+        how well you have done in Part 2 of this workshop!
+        <h6><a href="part2.html">Part 2 - Validating Carbohydrates</a></h6>
+    </details>
+
     <hr>
     <h3 id="references">References</h3>
     <ol class="references">
