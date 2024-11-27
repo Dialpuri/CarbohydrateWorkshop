@@ -156,7 +156,22 @@
         <p class="indent">Is there something from the<i>REFMAC</i>report that can help us do this? </p>
     </details>
 
-    <p>Once Coot opens, it should look similar to this with an atomic model, best map and difference map loaded.</p>
+    <p>Once <i>Coot</i> opens, it should look similar to this with an atomic model, best map (2mFo-DFc) and difference map (mFo-DFc) loaded.</p>
+    <details>
+        <summary class="indent">What does 2mFo-DFc mean?</summary>
+        <p class="indent">
+            The 2mFo-DFc map is one of the common maps used in crystallography and is not simply a map calculated from
+            observed reflection structure factor amplitudes and calculated phases, the addition of weightings from
+            the figure of merit (the uncertainty of a given phase) and &sigma;<sub>a</sub> weighting factor often allows
+            for a more interpretable map.
+            <ul class="indent">
+                <li>Fo - Observed Reflections</li>
+                <li>Fc - Calculated Reflections</li>
+                <li>m - Figure of Merit</li>
+                <li>D - &sigma;<sub>a</sub> weight factor</li>
+            </ul>
+        </p>
+    </details>
     <img src="images/coot/coot-initial-look.png" alt="An image of the initial Coot screen"/>
     <p>Look around the model, is there anything that stands out as odd?</p>
     <details>
@@ -204,7 +219,7 @@
     </p>
     <img src="images/coot/coot-carbohydrate-module.png" alt="An image of Coot's carbohydrate module"/>
 
-    <p>Now we can let the semi-automatic glycan builder in Coot handle the heavy lifting. Navigate to and select
+    <p>Now we can let the semi-automatic glycan builder in <i>Coot</i> handle the heavy lifting. Navigate to and select
         <code class="inline-code">Glyco > N-link add NAG, NAG, BMA </code>. <i>Coot</i> will then attempt to add the
         first three sugars in an N-glycan chain which are NAG followed with another NAG via a 1,4 linkage, followed by a
         BMA sugar via another 1,4 linkage. It is important that the center of your view is near to the ASN/476 residue
@@ -267,8 +282,7 @@
     <div class="footer">
         <a class="icon" href="mailto:jordan.dialpuri@york.ac.uk"><img src="icons/email.svg"
                                                                       alt="Email icon indicating a link to email an organiser"></a>
-        Jordan Dialpuri and Lucy Schofield,
-        University of York
+        <p>Jordan Dialpuri and Lucy Schofield, University of York</p>
     </div>
 </div>
 </body>
