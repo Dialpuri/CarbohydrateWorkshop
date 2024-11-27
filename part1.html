@@ -43,7 +43,7 @@
 
     <h3 id="gettingstarted">2. Getting Started</h3>
     <p>
-        To get started, download the following files by clicking on then:
+        To get started, download the following files by clicking on them:
     <ul>
         <li>
             <a href="data/carbohydrate-workshop-data.mtz">carbohydrate-workshop-data.mtz</a>
@@ -148,7 +148,7 @@
     </p>
     <h3 id="modelbuilding">3. Model Building</h3>
     <p>
-        Now that we have imported our data and generated some maps, we can start to manually build the model of a glycan.
+        Now that we have imported our data and generated some maps, we can start to interactively build the model of a glycan.
         To do this we need to launch <i>Coot</i> from within CCP4i2.
     </p>
     <details>
@@ -219,11 +219,11 @@
     </p>
     <img src="images/coot/coot-carbohydrate-module.png" alt="An image of Coot's carbohydrate module"/>
 
-    <p>Now we can let the semi-automatic glycan builder in <i>Coot</i> handle the heavy lifting. Navigate to and select
+    <p>Now we can let the semi-automatic glycan builder in <i>Coot</i> handle the heavy lifting. Center your view
+        near to the ASN/476 residue of chain A. Then, navigate to and select
         <code class="inline-code">Glyco > N-link add NAG, NAG, BMA </code>. <i>Coot</i> will then attempt to add the
         first three sugars in an N-glycan chain which are NAG followed with another NAG via a 1,4 linkage, followed by a
-        BMA sugar via another 1,4 linkage. It is important that the center of your view is near to the ASN/476 residue
-        of chain A.
+        BMA sugar via another 1,4 linkage.
     </p>
 
     <p><i>Coot</i> should have built three sugars nicely into the best (2mFo-DFc) density map as shown. The terminal
@@ -236,7 +236,7 @@
     <details>
         <summary class="indent">How do I do that?</summary>
         <p class="indent">Navigate to the save button,
-            <code class="inline-code">File > Save mol to CCP4i2</code>
+            <code class="inline-code">File > Save mol to CCP4i2 > Ok</code>
         </p>
         <p class="indent"><img src="images/coot/coot-save-mol.png"
                                alt="An image of the CCP4i2 popup box for importing merged reflection data"></p>
@@ -249,8 +249,8 @@
     </details>
 
     <p>
-        After 10 cycles of <i>REFMAC</i> we can reopen our model and map in <i>Coot</i> to see that the semi-automatic
-        glycan builder has done a good job, but at this point are we finished?
+        After 10 cycles of <i>REFMAC</i> we can reopen our model and map in <i>Coot</i> (navigating back to A/ASN/476)
+        to see that the semi-automatic glycan builder has done a good job, but at this point are we finished?
     </p>
 
     <p><img src="images/coot/coot-nag-nag-bma-refined.png"></p>
@@ -279,6 +279,9 @@
             crystal structures. Acta Cryst. D67, 355-367.</a></li>
 
     </ol>
+    <hr>
+    <p class="acknowledgements">Special thanks to Paul Bond for testing this workshop and for the inspiration. Checkout
+    Paul's <i>Coot</i> workshop <a href="https://paulsbond.co.uk/coot-workshop/">here</a> if you want to learn more about <i>Coot</i> </p>
     <hr>
     <div class="footer">
         <a class="icon" href="mailto:jordan.dialpuri@york.ac.uk"><img src="icons/email.svg"

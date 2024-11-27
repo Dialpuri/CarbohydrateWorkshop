@@ -69,6 +69,14 @@ i {
     /*background-color: rgba(128, 128, 128, 0.27);*/
 }
 
+.acknowledgements {
+    font-size: 0.7rem;
+}
+
+p i {
+    padding: 0;
+}
+
 @media (max-width: 500px) {
     .header {
         flex-direction: column;
