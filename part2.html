@@ -19,10 +19,189 @@
     </div>
 
     <h2 class="title">Part 2 - Validating Carbohydrates</h2>
+    <details open>
+        <summary>Contents</summary>
+        <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#gettingstarted">Getting Started</a></li>
+            <li><a href="#validation">Validation Report</a></li>
+            <li><a href="#snfg">SNFG and Moorhen Visualisation</a></li>
+            <li><a href="#casestudy">Case Study</a></li>
+        </ol>
+    </details>
+
+    <h3 id="introduction">1. Introduction</h3>
+    <p>Welcome to Part 2 of the Carbohydrate Crystallography Workshop! If you completed Part 1, we will be validating
+        the carbohydrate chain you modelled in Part 1. If you didn't finish Part 1, don't worry you can still follow
+        along!</p>
+
+    <p>We will be using a software package called <i>Privateer</i> to validate our glycans. <i>Privateer</i> is the
+        Swiss Army
+        knife for carbohydrate structure validation, refinement and analysis. Carbohydrates, including O- and N-glycans
+        attached to protein and lipid structures, are known to be important in cellular biology. Therefore, we want
+        models
+        of glycans to be as accurate as possible, but in many cases, carbohydrates have been found to be deposited into
+        the
+        Protein Data Bank with errors. Identifying these problems was the initial goal of <i>Privateer</i> and today
+        <i>Privateer</i> is routinely used before structures are deposited.
+    </p>
+
+    <p><i>Privateer</i> is accessible in many interfaces such as CCP4i2, CCP4 Cloud, and CCP-EM, but we will be using
+        the
+        new <i>Privateer</i> Web App in this workshop.</p>
+
+    <h3 id="gettingstarted">2. Getting Started</h3>
+
+    <p>To launch the <i>Privateer</i> Web App navigate to this URL.</p>
+    <p class="centered"><a href="https://privateer.york.ac.uk/" target="_blank" rel="noopener noreferrer">https://privateer.york.ac.uk/</a>
+    </p>
+
+    <p>&#128296; <b>Upload</b> the the coordinate file and MTZ file generated in Part 1 of the workshop, by clicking on
+        the
+        <code class="inline-code"><img class="icon-code" src="images/webapp/upload_icon.png"
+                                       alt="Upload icon in the Privateer Web App">Choose a file </code> button.
+        After uploading both icons, you are ready to submit the structures for validation by <i>Privateer</i>, hit the
+        <code class="inline-code">Submit</code> button and <i>Privateer</i> will begin processing your structure within
+        your web browser.
+    </p>
+    <div class="centered-image"><img class="centered" src="images/webapp/upload_box.png"
+                                     alt="Upload box in the Privateer Web App"></div>
+
+    <p>
+        Once <i>Privateer</i> has completed (should take only a few seconds), you will a see a
+        table that contain a list of glycan chains (or ligands) in the model. Each entry in the table contains a chain
+        ID,
+        a linkage ID, an image representation of the glycan known as the Symbol Nomenclature for Glycans (SNFG) and two
+        database accession IDs. There were a number of other glycans in the structure, but we are interested in the
+        glycan on the newly modelled chain.
+    </p>
+
+    <div class="centered-image"><img class="centered" src="images/webapp/table.png"
+                                     alt="Table result in the Privateer Web App"></div>
+
+    <p>🔨 <b>Click</b> on the glycan chain that you added (on A/ASN/476) to open up a more detailed validation report,
+        which will tell us how well you did!</p>
+
+    <h3 id="validation">3. Validation Report</h3>
+
+    <p>
+        <i>Privateer</i> identifies <b>incorrect</b> regiochemistry, stereochemistry and unlikely ring conformations,
+        including:
+    <ul>
+        <li>Conformation issues: As pyranose (sugar) rings have clear conformational preferences for the 4C1 chair
+            ring pucker, any other detected ring conformation is highlighted as a possible issue.
+        </li>
+        <li>Anomer issues: Identifies discrepancies between the calculated anomer (alpha or beta) and that annotated
+            in the related CCD code.
+        </li>
+        <li>Torsion issues: Reports the number of torsion pair outliers.</li>
+        <li>Pucker issues: Focuses on the precise geometric distortion of the ring, often expressed in terms of
+            puckering parameters.
+        </li>
+        <li>Chirality issues: Identifies discrepancies between the calculated anomer (D or L) and that annotated in the
+            related CCD code.
+        </li>
+    </ul>
+
+    We can see this summarised in the first part of the <i>Privateer</i> validation report.
+    </p>
+    <p>
+        <img class="centered-image" src="images/webapp/validation-report-issues.png" alt="Validation Report Issues">
+    </p>
 
 
+    <details>
+        <summary>💡 Does the glycan you modelled have any issues?</summary>
+        <p class="indent">Hopefully not, but if you did, you would see what the problem was through this issue
+            count.</p>
+    </details>
 
-    <!--    <h6><a href="part2.html">Part 2 - Validating Carbohydrates</a></h6>-->
+    <p>You can also check whether the glycan you have created is already known about by looking for accession codes for
+        the
+        GlyTouCan and GlyConnect databases.</p>
+    <details>
+        <summary>What are they?</summary>
+        <p class="indent">The GlyTouCan database<sup>1</sup> is an uncurated international repository of all known
+            glycans
+            from a range of sources. If your glycan has a GlyTouCan accession code, it has been seen before. The
+            GlyConnect
+            database is a knowledgebase which links varying data sources related to glycans, if your glycan has a
+            GlyConnect
+            accession code, it is likely to be confirmed via multiple independent methods.</p>
+    </details>
+
+    <h3 id="snfg">4. SNFG and Moorhen Visualisation</h3>
+    <p>
+        The Symbol Nomenclature for Glycans (SNFG) is a standardised system that uses unique symbols to represent
+        different
+        monosaccharides in glycan structures.
+    </p>
+    <p>
+        The white box in the SNFG indicates the residue in the protein to which the glycan is attached.
+        The different coloured shapes represent the different sugars in the glycan chains, with annotated links
+        that inform the linkage type (e.g. alpha or beta linkage, from which atom number).
+    </p>
+    <p>
+        <img src="images/webapp/snfg-and-moorhen.png" alt="Image of SNFG and Moorhen Visualisation">
+    </p>
+    <p>🔨 <b>Hover</b> over the links and sugars in the SNFG to provide more detailed validation information. If they are
+        highlighted in orange, Privateer has detected an issue. </p>
+    <p>🔨 <b>Click</b> on the sugars in the SNFG will take you directly to that same sugar in the Moorhen viewer. </p>
+
+    <p>💡Does the density support the glycan chain you have modelled?</p>
+
+    <p>Hopefully the glycan you modelled has no issues, but in the future, using the <i>Privateer</i>
+        Web App is a quick and easy way to check how well you've done with modelling glycans. Now, we
+        will look at an example which could use some improvement.</p>
+
+    <h3 id="casestudy">5. Case Study</h3>
+
+    <p>Refresh the <i>Privateer</i> page or click the logo in the top-left to get back to the start
+        of the web app. We are ready to look at an example from the PDB with some errors.</p>
+
+    <p>🔨 <b>Fetch</b> PDB code ‘3QVP’ from the PDB.</p>
+
+    <p>🔨 <b>Click</b> on any rows to get detailed validation information about a specific glycan chain.
+
+    <p>💡The first glycan chain in 3QVP has two issues:
+    <ul>
+        <li>conformation issues</li>
+        <li>torsion issue</li>
+    </ul>
+    </p>
+
+    <p>🔨 <b>Hover</b> over the links and sugars in the SNFG to provide more detailed validation information. If they are
+        highlighted in orange, Privateer has detected an issue.
+    </p>
+
+    <p>💡What high energy conformer has been calculated by Privateer?
+    </p>
+
+    <p>🔨 <b>Click</b> on the sugars in the SNFG will take you directly to that same sugar in the Moorhen viewer.
+    </p>
+
+    <p>💡Does the density support the high energy ring conformer?
+    </p>
+
+    <p>🔨 Try looking at these structures:
+    <ul>
+        <li>2H6O</li>
+        <li>5FJI</li>
+    </ul>
+    </p>
+
+    <p>
+        Which of these structures contains well-modelled sugars? What are the issues with the examples that are not
+    well-modelled? Is it a biochemical or modelling error?
+    </p>
+
+    <hr>
+    <h3 id="references">References</h3>
+    <ol class="references">
+        <li><a class="reference-link" href="https://doi.org/10.1093/nar/gkaa947">Fujita, A., Aoki, N., Shinmachi, D. et
+            al. (2021),
+            The international glycan repository GlyTouCan version 3.0. Nucleic Acids Res. D1, V49, 1529-1533</a></li>
+    </ol>
     <hr>
     <div class="footer">
         <a class="icon" href="mailto:jordan.dialpuri@york.ac.uk"><img src="icons/email.svg"

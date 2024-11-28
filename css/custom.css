@@ -64,6 +64,11 @@ summary::marker {
     font-size: 0.8rem;
 }
 
+.icon-code {
+    width: 1.5rem;
+    padding-right: 1em;
+}
+
 i {
     padding: 0.2rem;
     /*background-color: rgba(128, 128, 128, 0.27);*/
@@ -75,6 +80,15 @@ i {
 
 .acknowledgements i {
     padding: 0;
+}
+
+.centered {
+    text-align: center;
+}
+
+.centered-image {
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 500px) {
