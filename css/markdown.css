@@ -190,6 +190,12 @@ body {
     padding: .25rem;
 }
 
+@media screen and (max-width: 900px) {
+    body {
+        padding-inline: 1rem;
+    }
+}
+
 h1,
 h2,
 h3,
